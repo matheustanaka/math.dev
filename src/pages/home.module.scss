@@ -1,0 +1,56 @@
+.homeContainer {
+    height: 100vh;
+
+    .headerContent {
+        max-width: 1120px;
+        height: 5rem;
+        margin: 1rem auto;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        nav {
+            a {
+                display: inline-block;
+                position: relative;
+                padding: 0 1rem;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .profileContent {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        
+        margin-top: 5rem;
+
+        .img {
+            border-radius: 5rem;
+        }
+
+        h1 {
+            margin-top: 1.5rem;
+            font-size: 2rem;
+        }
+
+        p {
+            margin: 1rem auto;
+            text-align: center;
+
+            font-size: 1.2rem;
+        }
+        
+        .contact {
+            margin: 0.25rem;
+            a {
+                padding: 0.5rem;
+            }
+        }
+    }
+
+
+}
+
