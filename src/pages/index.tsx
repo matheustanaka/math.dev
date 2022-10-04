@@ -19,6 +19,9 @@ export default function Home() {
           <a>
             About
           </a>
+          <a>
+            Contact
+          </a>
         </nav>
       </div>
       <div className={styles.profileContent}>
