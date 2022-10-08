@@ -3,6 +3,7 @@ import styles from "./home.module.scss"
 import img from '../../public/me.jpeg'
 import { FiGithub } from 'react-icons/fi'
 import { HiOutlineMail } from 'react-icons/hi'
+import { FiTwitter } from 'react-icons/fi'
 
 export default function Home() {
   return (
@@ -34,6 +35,9 @@ export default function Home() {
           </a>
           <a>
             <HiOutlineMail className={styles.email} size={25}/>
+          </a>
+          <a>
+            <FiTwitter className={styles.twitter} size={25}/>
           </a>
         </div>
       </div>
