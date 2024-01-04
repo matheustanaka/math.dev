@@ -44,4 +44,53 @@ const {name, username} = Astro.props
 
 The folder **posts** is responsible to generate posts with the markdown file type, if you want to create a post, use the **.md** at the end of the file name.
 
+# Working with <slot/>
+
+Slot allows you to inject child content between opening and closing **<component></component>** tags to any **component.astro**
+
+Astro gives the example of <BaseLayout/> component, if you add the <slot/> tag inside this page, you will be able to inject content on child component
+
+In this example we use src -> layouts -> BaseLayout.astro
+
+```html
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+const pageTitle = "Home Page";
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <Header />
+    <h1>{pageTitle}</h1>
+    <slot />  ----> Slot is here
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</html>
+```
+
+Check the child component in src -> pages -> index.astro
+
+```html
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Home Page";
+---
+<BaseLayout>
+  <h2>My awesome blog subtitle</h2>
+    <h3>Teste o slot</h3>
+</BaseLayout>
+```
+
+Following this example, the <slot /> tag allows you to display the h2 and h3 tags in your web page between the BaseLayout component
 

@@ -1,26 +1,8 @@
 ---
-// CSS imports
-import "../styles/global.css"
-// Components imports
-import Footer from "../components/Footer.astro"
-import Header from "../components/Header.astro"
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = Astro.props;
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>astro</title>
-	</head>
-	<body>
-        <Header />
-        <h1>Home Page</h1>
-        <h2>... and my new Astro site!</h2>
-        <Footer />
-    <script>
-        import "../scripts/menu.js";
-    </script>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>My awesome blog subtitle</h2>
+    <h3>Teste o slot</h3>
+</BaseLayout>
