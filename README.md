@@ -44,6 +44,43 @@ const {name, username} = Astro.props
 
 The folder **posts** is responsible to generate posts with the markdown file type, if you want to create a post, use the **.md** at the end of the file name.
 
+## Issues with posts
+
+By default, the page posts dont have any layout, so if you open a new Blog post it will redirect you to the blog but without any layout component, for example Header components.
+
+Astro recommend to create a layout model just for posts. They also use a property called as **frontmatter** which allows you to use all the variables inside the yaml file.
+
+```html
+---
+const { frontmatter } = Astro.props;
+---
+<h1>{frontmatter.title}</h1>
+<p>Written by {frontmatter.author}</p>
+<slot />
+```
+
+By following the example above, you will be able to get the data from the yamls like the title variable and author.
+
+Now, we need to specify which layout we gonna use in Post. 
+
+```yaml
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+title: 'My First Blog Post'
+pubDate: 2022-07-01
+description: 'This is the first post of my new Astro blog.'
+author: 'Astro Learner'
+image:
+    url: 'https://docs.astro.build/assets/full-logo-light.png'
+    alt: 'The full Astro logo.'
+tags: ["astro", "blogging", "learning in public"]
+---
+```
+
+### Tips with Layouts
+
+When using layouts, you now have the option of including elements, like a page title, in the Markdown content or in the layout. Remember to visually inspect your page preview and make any adjustments necessary to avoid duplicated elements.
+
 # Working with <slot/>
 
 Slot allows you to inject child content between opening and closing **<component></component>** tags to any **component.astro**
