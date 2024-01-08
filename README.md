@@ -131,3 +131,6 @@ const pageTitle = "Home Page";
 
 Following this example, the <slot /> tag allows you to display the h2 and h3 tags in your web page between the BaseLayout component
 
+# Posts Archive
+
+Astro provides a method called as **.glob()** which will create an array of objects. We can use this method to store our posts.
