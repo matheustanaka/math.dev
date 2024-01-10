@@ -134,3 +134,31 @@ Following this example, the <slot /> tag allows you to display the h2 and h3 tag
 # Posts Archive
 
 Astro provides a method called as **.glob()** which will create an array of objects. We can use this method to store our posts.
+
+# Generate Tags and Dynamic page routing
+
+If a page uses dynamic params in the filename, that component will need to export a getStaticPaths() function.
+
+This function is required because Astro is a static site builder. That means that your entire site is built ahead of time. If Astro doesn’t know to generate a page at build time, your users won’t see it when they visit your site.
+
+```html
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob('../posts/*.md');
+
+  return [
+    {params: {tag: "astro"}, props: {posts: allPosts}},
+    {params: {tag: "successes"}, props: {posts: allPosts}},
+    {params: {tag: "community"}, props: {posts: allPosts}},
+    {params: {tag: "blogging"}, props: {posts: allPosts}},
+    {params: {tag: "setbacks"}, props: {posts: allPosts}},
+    {params: {tag: "learning in public"}, props: {posts: allPosts}}
+  ]
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+```
